@@ -14,7 +14,7 @@ pipeline {
          }
          stage ("Checkout from SCM"){
              steps {
-                 git branch: 'main', credentialsId: 'github', url: 'https://github.com/nguyenle510/lab_endava'             
+                 git branch: 'main', credentialsID: 'github', url: 'https://github.com/nguyenle510/lab_endava'             
              }
          }
          stage ("Build"){
