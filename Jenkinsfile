@@ -7,16 +7,23 @@ pipeline {
         maven 'Maven3'
     }
     stages {
-         stage ("Cleanup Workspace"){
-             steps {
-                 cleanWs()
-             }
-         }
+         #stage ("Cleanup Workspace"){
+         #   steps {
+         #        cleanWs()
+         #    }
+         #}
 
          stage ("Checkout from SCM"){
              steps {
                  git branch: 'main', credentialsId: 'github', url: 'https://github.com/nguyenle510/lab_endava'             
              }
          }
+        
+         stage ("build"){
+             steps {
+                 sh "mvn clean package"            
+             }
+         }
+        
     }
 }
