@@ -14,7 +14,7 @@ pipeline {
          }
          stage ("Checkout from SCM"){
              steps {
-                 git branch: 'main', credentialsID: 'github', url: 'https://github.com/nguyenle510/lab_endava'             
+                 git branch: 'main', credentialsId: 'github', url: 'https://github.com/nguyenle510/lab_endava'             
              }
          }
          stage ("Build"){
@@ -29,7 +29,7 @@ pipeline {
          }
          stage ("Sonarqube Analysis"){
              steps {
-                 withSonarQubeEnv(credentialsID: 'sonarqube'){
+                 withSonarQubeEnv(credentialsId: 'sonarqube'){
                  sh "mvn sonar:sonar"    
                 }
              }
